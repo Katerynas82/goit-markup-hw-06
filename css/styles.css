@@ -630,7 +630,7 @@ display: flex;
 }
 
 .footer-soc-icon {
-  fill: var(--Light-mode-backgrounds);
+  fill: var(--hero-text-color);
 }
 
 .footer-soc-link:is(:hover, :focus) {
@@ -690,19 +690,19 @@ display: flex;
   border: transparent;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-/* 
-}
- .subscribe-icon {
+
+
+ /* .subscribe-icon {
  fill: currentColor
    
   
  }  */
 
-.footer-button::after {
+.footer-button .subscribe-icon::after {
   content: "";
   width: 24px;
   height: 20px;
-  padding-left: 24px;
+  padding: 0 24px 0 8px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position-x: right;
