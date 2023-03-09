@@ -28,7 +28,7 @@
   --backdrop: rgba(46, 47, 66, 0.4);
   --modal-bgc: #fff;
   --close-bgc: rgba(231, 233, 252, 1);
-  --close-border: #E7E9FC;
+  --close-border: #e7e9fc;
   --btn-main-modal: #4d5ae5;
   --modal-input-border: #2e2f42;
   --coment-area: rgba(46, 47, 66, 0.4);
@@ -58,6 +58,21 @@ p {
 ul {
   margin: 0;
   padding-left: 0;
+}
+
+/* прихований заголовок */
+
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
 }
 
 img {
@@ -192,21 +207,6 @@ body {
 }
 .adr-link {
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* прихований заголовок */
-
-.visually-hidden {
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
 }
 
 /* STUDIO PAGE */
@@ -589,7 +589,6 @@ display: flex;
 
 .footer-block {
   display: flex;
-  gap: 120px;
 }
 .hed {
   color: var(--footer-text-color);
@@ -610,6 +609,14 @@ display: flex;
   width: 40px;
   height: 40px;
 }
+.social-block {
+  margin-left: 120px;
+}
+.subscribe-block {
+  margin-left: 80px;
+  display: flex;
+  flex-direction: column;
+}
 
 .footer-soc-link {
   width: 100%;
@@ -628,30 +635,43 @@ display: flex;
 
 .footer-soc-link:is(:hover, :focus) {
   background-color: var(--footer-icon-h-f);
-  
 }
 .footer-subscribe {
   width: 264px;
   height: 40px;
+  font-weight: 400;
+  font-style: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: var(--hero-text-color);
   background-color: var(--hero-backround);
+  padding: 0 16px 0 16px;
   border: 1px solid var(--border-button);
   border-radius: 4px;
   margin-top: 16px;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.footer-subscribe:focus {
+  border-color: var(--overlay-bgc);
+}
+
 .footer-subscribe::placeholder {
   font-weight: 400;
   font-style: 12px;
-  line-height: 2.0;
+  line-height: 2;
   letter-spacing: 0.04em;
   color: var(--hero-text-color);
-  padding: 8px 0 8px 16px;
-
+  padding: 8px 0 8px;
 }
 .footer-main {
   display: flex;
 }
 
 .footer-button {
+  width: 165px;
+  height: 40px;
+  margin-left: 24px;
   font-family: inherit;
   cursor: pointer;
   font-weight: 500;
@@ -662,27 +682,39 @@ display: flex;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   color: var(--hero-text-color);
-  display: block;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
   margin-top: 16px;
-  padding: 8px 64px 8px 24px;
+  padding: 8px 24px 8px 24px;
   border: transparent;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
 }
+/* 
+}
+ .subscribe-icon {
+ fill: currentColor
+   
+  
+ }  */
 
 .footer-button::after {
   content: "";
   width: 24px;
-  height: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--background);
-  background-image: url(../images/telegram.svg);
-
-
+  height: 20px;
+  padding-left: 24px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: right;
+  fill: currentColor;
+  background-image: url(/images/telegram.svg);
 }
 
+.footer-button:is(:hover, :focus) {
+  background-color: var(--button-h-f);
+  color: var(--hero-text-color);
+  outline: none;
+}
 
 .content-pic {
   display: flex;
@@ -807,7 +839,7 @@ display: flex;
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: var(--modal-bgc) ;
+  background-color: var(--modal-bgc);
   border: 1px solid var(--close-border);
   display: flex;
   align-items: center;
@@ -818,11 +850,10 @@ display: flex;
   cursor: pointer;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.modal-close:is(:hover, :focus){
+.modal-close:is(:hover, :focus) {
   fill: var(--hero-text-color);
   background-color: var(--button-h-f);
 }
-  
 
 .is-hidden {
   visibility: hidden;
@@ -833,7 +864,6 @@ display: flex;
     overflow: hidden;
 } */
 .modal-form {
-  
 }
 .modal-form-title {
   font-weight: 500;
@@ -852,21 +882,19 @@ display: flex;
   font-size: 12px;
   padding: 0 0 0 38px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .modal-input:focus {
-    border-color: var(--overlay-bgc);
-  
-  }
+}
+.modal-input:focus {
+  border-color: var(--overlay-bgc);
+}
 
-  .modal-input:focus + .modal-input-img {
-    fill: var(--overlay-bgc);
-  }
-.coment-area{
+.modal-input:focus + .modal-input-img {
+  fill: var(--overlay-bgc);
+}
+.coment-area {
   height: 120px;
   padding: 8px 8px 8px 16px;
   resize: none;
-  
-  }
+}
 .coment-area::placeholder {
   top: 0;
   left: 0;
@@ -875,8 +903,7 @@ display: flex;
   line-height: 1.17;
   letter-spacing: 0.04em;
   /* padding: 8px 8px 8px 0px; */
-
-}  
+}
 
 .input-text {
   font-size: 12px;
@@ -901,27 +928,23 @@ display: flex;
 
 .input-wrap {
   position: relative;
-  
 }
 .modal-field {
   margin-bottom: 8px;
 }
 
-
 .privacy-policy {
-color: var(--btn-main-modal);
-margin-left: 3px;
-
+  color: var(--btn-main-modal);
+  margin-left: 3px;
 }
 .modal-checkbox {
   margin-top: 16px;
-  
 }
 .modal-text-accept {
   /* letter-spacing: 0.04; */
   display: flex;
-   align-items: center;
-   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-text-accept::before {
   content: "";
@@ -930,20 +953,19 @@ margin-left: 3px;
   border: 1px solid var(--title-text-color);
   border-radius: 2px;
   margin-right: 8px;
-  }
-  
+}
+
 .input-chek:checked + .modal-text-accept::before {
   content: "";
   border: none;
   background-color: var(--button-h-f);
-     background-image: url(../images/Check.svg);
-   background-repeat: no-repeat;
-   background-position: center;
+  background-image: url(../images/Check.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .input-chek:focus + .modal-text-accept::before {
   border-color: var(--button-h-f);
 }
-
 
 .modal-form-button {
   display: block;
@@ -957,7 +979,7 @@ margin-left: 3px;
   line-height: 1.5;
   letter-spacing: 0.04em;
   color: var(--hero-text-color);
-  
+
   border-radius: 4px;
   background-color: var(--btn-main-modal);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
